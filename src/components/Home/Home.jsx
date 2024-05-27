@@ -1,6 +1,7 @@
 import React, { useContext, useEffect } from "react";
 import { ProductsContext } from "../../context/ProductsContext";
 import { Link } from "react-router-dom";
+import "./Home.scss"
 
 const Home = () => {
 
@@ -20,7 +21,7 @@ const Home = () => {
   }
 
   return (
-    <div className="container">
+    <div id="products" className="container">
       <div className="row">
         {products.map((product) => (
           <div key={product.id} className="col-md-4 mb-4">
