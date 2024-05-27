@@ -1,5 +1,8 @@
 import React from 'react'
 import { Link } from "react-router-dom";
+import { FaBasketShopping } from "react-icons/fa6";
+import { CgProfile } from "react-icons/cg";
+import { TbLogin2 } from "react-icons/tb";
 
 const Header = () => {
   return (
@@ -15,16 +18,10 @@ const Header = () => {
               <Link className="nav-link" to="/">Home</Link>
             </li>
             <li className="nav-item">
-              <Link className="nav-link" to="/register">Register</Link>
+              <Link className="nav-link" to="/profile">Profile<CgProfile/></Link>
             </li>
             <li className="nav-item">
-              <Link className="nav-link" to="/login">Login</Link>
-            </li>
-            <li className="nav-item">
-              <Link className="nav-link" to="/profile">Profile</Link>
-            </li>
-            <li className="nav-item">
-              <Link className="nav-link" to="/cart">Cart</Link>
+              <Link className="nav-link" to="/cart">Cart <FaBasketShopping /></Link>
             </li>
           </ul>
         </div>

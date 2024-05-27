@@ -28,6 +28,7 @@ const Home = () => {
             <div className="card">
               <div className="card-body" onClick={() =>onCart(product.id)}>
                 <h2 className="card-title">{product.name}</h2>
+                <h4 className="card-title">{product.price}€</h4>
                 <span>Categoria/s :</span>
                 <p>
                   {product.Categories.map((category, index) => (

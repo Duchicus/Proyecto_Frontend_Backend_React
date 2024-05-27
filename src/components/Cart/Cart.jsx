@@ -7,7 +7,7 @@ const Cart = () => {
   return (
     <div>
       {cartProducts.map((product, index) => (
-        <p key={index}>{product.name}</p>
+        <p key={index}>{product.name} | {product.price}€</p>
       ))}
     </div>
   );
