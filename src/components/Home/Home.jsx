@@ -30,7 +30,7 @@ const Home = () => {
                 <span>Categoria/s :</span>
                 <p>
                   {product.Categories.map((category, index) => (
-                    <p key={index}>{category.name}</p>
+                    <span key={index}>{category.name}</span>
                   ))}
                 </p>
               </div>
