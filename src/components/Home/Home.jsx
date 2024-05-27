@@ -6,7 +6,7 @@ const Home = () => {
 
   const { products, getProducts } = useContext(ProductsContext)
 
-  const cart = []
+  let cart = JSON.parse(localStorage.getItem('Cart')) || []
 
   useEffect(() => {
     getProducts()
@@ -14,8 +14,9 @@ const Home = () => {
 
   const onCart = (id) =>{
     const onSelected = products.filter(product => product.id === id)
-    cart.push(onSelected)
+    cart.push(...onSelected)
     localStorage.setItem('Cart', JSON.stringify(cart))
+    
   }
 
   return (
