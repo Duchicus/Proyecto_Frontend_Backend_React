@@ -2,7 +2,7 @@ import React from 'react'
 import { Link } from "react-router-dom";
 import { FaBasketShopping } from "react-icons/fa6";
 import { CgProfile } from "react-icons/cg";
-import { TbLogin2 } from "react-icons/tb";
+import { FaHome } from "react-icons/fa";
 
 const Header = () => {
   return (
@@ -15,10 +15,10 @@ const Header = () => {
         <div className="collapse navbar-collapse" id="navbarNav">
           <ul className="navbar-nav">
             <li className="nav-item">
-              <Link className="nav-link" to="/">Home</Link>
+              <Link className="nav-link" to="/">Home <FaHome/></Link>
             </li>
             <li className="nav-item">
-              <Link className="nav-link" to="/profile">Profile<CgProfile/></Link>
+              <Link className="nav-link" to="/profile">Profile <CgProfile/></Link>
             </li>
             <li className="nav-item">
               <Link className="nav-link" to="/cart">Cart <FaBasketShopping /></Link>

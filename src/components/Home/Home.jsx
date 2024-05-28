@@ -27,8 +27,8 @@ const Home = () => {
           <div key={product.id} className="col-md-4 mb-4">
             <div className="card">
               <div className="card-body" onClick={() =>onCart(product.id)}>
-                <h2 className="card-title">{product.name}</h2>
-                <h4 className="card-title">{product.price}€</h4>
+                <h4 className="card-title">{product.name}</h4>
+                <h5 className="card-title">{product.price}€</h5>
                 <span>Categoria/s :</span>
                 <p>
                   {product.Categories.map((category, index) => (
