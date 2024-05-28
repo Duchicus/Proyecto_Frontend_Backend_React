@@ -57,6 +57,7 @@ export const UsersProvider = ({ children }) => {
             })
             if (res.data) {
                 localStorage.removeItem("token")
+                localStorage.removeItem("Cart")
                 dispatch({
                     type: "LOGOUT"
                 })

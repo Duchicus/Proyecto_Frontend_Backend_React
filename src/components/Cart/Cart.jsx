@@ -2,7 +2,7 @@ import React from 'react'
 
 const Cart = () => {
 
-  const cartProducts = JSON.parse(localStorage.getItem('Cart'))
+  const cartProducts = JSON.parse(localStorage.getItem('Cart')) || []
 
   const countMap = [];
   cartProducts.forEach(element => {

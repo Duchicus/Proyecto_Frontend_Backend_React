@@ -6,10 +6,8 @@ const Profile = () => {
   const { getUserInfo, token, user } = useContext(UserContext);
 
   useEffect(() => {
-    if (token) {
       getUserInfo();
-    }
-  }, [token, getUserInfo]);
+  }, [token]);
 
   return (
     <div className="container-fluid d-flex justify-content-center align-items-center mt-5 pt-5">
