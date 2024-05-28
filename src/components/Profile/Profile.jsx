@@ -1,11 +1,8 @@
-import { useNavigate } from "react-router-dom";
 import React, { useContext, useEffect } from 'react';
 import { UserContext } from '../../context/UsersContext';
 import { Spin } from "antd";
-import './Profile.scss'
 
 const Profile = () => {
-  const navigate = useNavigate();
   const { getUserInfo, token, user } = useContext(UserContext);
 
   useEffect(() => {
@@ -21,7 +18,7 @@ const Profile = () => {
           <div className="card-header bg-primary text-white text-center">
             <h3>User Details</h3>
           </div>
-          <div className="card-body">
+          <div className="card-body p-5">
             <p className="card-text">
               <strong>Email:</strong> {user.email}
             </p>

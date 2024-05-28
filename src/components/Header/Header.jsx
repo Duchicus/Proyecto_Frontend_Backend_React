@@ -1,5 +1,5 @@
 import React, { useContext } from 'react'
-import { Link } from "react-router-dom";
+import { Link, useNavigate } from "react-router-dom";
 import { FaBasketShopping } from "react-icons/fa6";
 import { CgProfile } from "react-icons/cg";
 import { FaHome } from "react-icons/fa";
@@ -8,6 +8,7 @@ import { UserContext } from '../../context/UsersContext';
 const Header = () => {
 
   const {token , logout } = useContext(UserContext)
+  const navigate = useNavigate()
 
   const handleLogout = async () => {
     await logout();
