@@ -1,12 +1,18 @@
-import React from 'react'
+import React, { useContext } from 'react'
 import { Link } from "react-router-dom";
 import { FaBasketShopping } from "react-icons/fa6";
 import { CgProfile } from "react-icons/cg";
 import { FaHome } from "react-icons/fa";
+import { UserContext } from '../../context/UsersContext';
 
 const Header = () => {
 
-  const token = localStorage.getItem("token")
+  const {token , logout } = useContext(UserContext)
+
+  const handleLogout = async () => {
+    await logout();
+    navigate("/login");
+  };
 
   return (
     <nav className="navbar navbar-expand-lg navbar-light bg-light fixed-top w-100">
@@ -24,9 +30,14 @@ const Header = () => {
               <Link className="nav-link" to="/cart">Cart <FaBasketShopping /></Link>
             </li>
             {token ? (
-              <li className="nav-item">
-                <Link className="nav-link" to="/profile">Profile </Link>
-              </li>
+              <>
+                <li className="nav-item">
+                  <Link className="nav-link" to="/profile">Profile </Link>
+                </li>
+                <li className="nav-item">
+                  <button className="nav-link btn btn-link" onClick={handleLogout}>Logout</button>
+                </li>
+              </>
             ) : (
               <>
                 <li className="nav-item">

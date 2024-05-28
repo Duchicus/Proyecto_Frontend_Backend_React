@@ -1,32 +1,78 @@
 import React from 'react'
-import "./Register.scss"
+import { Input, Button, Form } from 'antd';
+
 
 const Register = () => {
+
+  const emailRegex = /^[a-zA-Z0-9._%+-]+@[a-zA-Z0-9.-]+\.[a-zA-Z]{2,}$/
+
   return (
     <>
-      <div id='register' className="container-fluid">
-        <div className="row justify-content-center">
-          <div className="col-md-6">
-            <div className="card">
-              <div className="card-header bg-primary text-light text-center">
+      <div id="register" className="container-fluid d-flex align-items-center min-vh-100">
+        <div className="row justify-content-center w-100">
+          <div className="col-md-6 mt-n5">
+            <div className="card shadow">
+              <div className="card-header bg-secondary text-light text-center">
                 <h3>Register</h3>
               </div>
               <div className="card-body">
-                <form>
-                  <div className="form-group">
-                    <label htmlFor="email">Email address</label>
-                    <input type="email" className="form-control" id="email" placeholder="Enter email" />
-                  </div>
-                  <div className="form-group">
-                    <label htmlFor="password">Password</label>
-                    <input type="password" className="form-control" id="password" placeholder="Password" />
-                  </div>
-                  <div className="form-group form-check">
-                    <input type="checkbox" className="form-check-input" id="rememberMe" />
-                    <label className="form-check-label" htmlFor="rememberMe">Remember me</label>
-                  </div>
-                  <button type="submit" className="btn btn-primary btn-block">Register</button>
-                </form>
+                <Form
+                  name="basic"
+                  labelCol={{
+                    span: 8,
+                  }}
+                  wrapperCol={{
+                    span: 16,
+                  }}
+                  style={{
+                    maxWidth: 600,
+                  }}
+                  initialValues={{
+                    remember: true,
+                  }}
+                  autoComplete="on"
+                >
+                  <Form.Item
+                    label="Email"
+                    name="email"
+                    rules={[
+                      {
+                        required: true,
+                        message: 'Please input your email!',
+                      },
+                      {
+                        pattern: emailRegex,
+                        message: 'Please input a correct email!',
+                      },
+                    ]}
+                  >
+                    <Input />
+                  </Form.Item>
+
+                  <Form.Item
+                    label="Password"
+                    name="password"
+                    rules={[
+                      {
+                        required: true,
+                        message: 'Please input your password!',
+                      },
+                    ]}
+                  >
+                    <Input.Password />
+                  </Form.Item>
+
+                  <Form.Item
+                    wrapperCol={{
+                      offset: 8,
+                      span: 16,
+                    }}
+                  >
+                    <Button className='bg-secondary' htmlType="submit">
+                      <p className='text-light'>Submit</p>
+                    </Button>
+                  </Form.Item>
+                </Form>
               </div>
             </div>
           </div>

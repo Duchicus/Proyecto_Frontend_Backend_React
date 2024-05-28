@@ -2,11 +2,11 @@ import { useNavigate } from "react-router-dom";
 import React, { useContext, useEffect } from 'react';
 import { UserContext } from '../../context/UsersContext';
 import { Spin } from "antd";
-import { Link } from "react-router-dom";
+import './Profile.scss'
 
 const Profile = () => {
   const navigate = useNavigate();
-  const { getUserInfo, token, user, logout } = useContext(UserContext);
+  const { getUserInfo, token, user } = useContext(UserContext);
 
   useEffect(() => {
     if (token) {
@@ -14,52 +14,30 @@ const Profile = () => {
     }
   }, [token, getUserInfo]);
 
-  const handleLogout = async () => {
-    await logout();
-    navigate("/login");
-  };
-
   return (
-    <div>
-      <nav className="navbar navbar-expand-lg navbar-light bg-light mt-5">
-        <div className="container">
-          <a className="navbar-brand" href="#">Profile</a>
-          <button className="navbar-toggler" type="button" data-bs-toggle="collapse" data-bs-target="#navbarNav" aria-controls="navbarNav" aria-expanded="false" aria-label="Toggle navigation">
-            <span className="navbar-toggler-icon"></span>
-          </button>
-          <div className="collapse navbar-collapse" id="navbarNav">
-            <ul className="navbar-nav ml-auto">
-              {token ? (
-                <>
-                  <li className="nav-item">
-                    <button className="nav-link btn btn-link" onClick={handleLogout}>Logout</button>
-                  </li>
-                </>
-              ) : (
-                <>
-                  <li className="nav-item">
-                    <Link className="nav-link" to="/register">Register</Link>
-                  </li>
-                  <li className="nav-item">
-                    <Link className="nav-link" to="/login">Login</Link>
-                  </li>
-                </>
-              )}
-            </ul>
+    <div className="container-fluid d-flex justify-content-center align-items-center mt-5 pt-5">
+      {user ? (
+        <div className="card">
+          <div className="card-header bg-primary text-white text-center">
+            <h3>User Details</h3>
+          </div>
+          <div className="card-body">
+            <p className="card-text">
+              <strong>Email:</strong> {user.email}
+            </p>
+            <p className="card-text">
+              <strong>Orders:</strong> {user.Orders}
+            </p>
+            <p className="card-text">
+              <strong>Role:</strong> {user.role}
+            </p>
           </div>
         </div>
-      </nav>
-      <div>
-        {user ? (
-          <>
-            <p>User: {user.email}</p>
-            <p>Orders: {user.Orders}</p>
-            <p>Role: {user.role}</p>
-          </>
-        ) : (
-          <Spin />
-        )}
-      </div>
+      ) : (
+        <div className="d-flex justify-content-center align-items-center min-vh-100">
+          <Spin size="large" />
+        </div>
+      )}
     </div>
   );
 }
