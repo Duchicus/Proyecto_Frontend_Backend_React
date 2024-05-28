@@ -1,12 +1,23 @@
-import React, { useContext } from 'react'
-import { Link, useNavigate } from "react-router-dom";
+import { useNavigate } from "react-router-dom";
+import React, { useContext, useEffect } from 'react';
 import { UserContext } from '../../context/UsersContext';
+import { Spin } from "antd";
+import { Link } from "react-router-dom";
 
 const Profile = () => {
+  const navigate = useNavigate();
+  const { getUserInfo, token, user, logout } = useContext(UserContext);
 
-  const navigate = useNavigate()
+  useEffect(() => {
+    if (token) {
+      getUserInfo();
+    }
+  }, [token, getUserInfo]);
 
-  const { logout, token } = useContext(UserContext)
+  const handleLogout = async () => {
+    await logout();
+    navigate("/login");
+  };
 
   return (
     <div>
@@ -21,19 +32,19 @@ const Profile = () => {
               {token ? (
                 <>
                   <li className="nav-item">
-                    <a className="nav-link" href="/user">User</a>
+                    <Link className="nav-link" to="/user">User</Link>
                   </li>
                   <li className="nav-item">
-                    <button onClick={() => { logout(); navigate("/login") }}>Logout</button>
+                    <button className="nav-link btn btn-link" onClick={handleLogout}>Logout</button>
                   </li>
                 </>
               ) : (
                 <>
                   <li className="nav-item">
-                    <a className="nav-link" href="/register">Register</a>
+                    <Link className="nav-link" to="/register">Register</Link>
                   </li>
                   <li className="nav-item">
-                    <a className="nav-link" href="/login">Login</a>
+                    <Link className="nav-link" to="/login">Login</Link>
                   </li>
                 </>
               )}
@@ -41,9 +52,19 @@ const Profile = () => {
           </div>
         </div>
       </nav>
+      <div>
+        {user ? (
+          <>
+            <p>User: {user.email}</p>
+            <p>Orders: {user.Orders}</p>
+            <p>Role: {user.role}</p>
+          </>
+        ) : (
+          <Spin />
+        )}
+      </div>
     </div>
-
-  )
+  );
 }
 
-export default Profile
+export default Profile;

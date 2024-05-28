@@ -38,7 +38,6 @@ export const UsersProvider = ({ children }) => {
                     Authorization: token
                 }
             })
-            console.log(res);
             dispatch({
                 type: "GET_INFO",
                 payload: res.data

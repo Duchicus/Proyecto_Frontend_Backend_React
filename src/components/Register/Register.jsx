@@ -1,12 +1,9 @@
 import React from 'react'
-import { Link } from "react-router-dom";
 import "./Register.scss"
-import Profile from "../Profile/Profile"
 
 const Register = () => {
   return (
     <>
-      <Profile />
       <div id='register' className="container-fluid">
         <div className="row justify-content-center">
           <div className="col-md-6">
