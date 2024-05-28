@@ -32,9 +32,6 @@ const Profile = () => {
               {token ? (
                 <>
                   <li className="nav-item">
-                    <Link className="nav-link" to="/user">User</Link>
-                  </li>
-                  <li className="nav-item">
                     <button className="nav-link btn btn-link" onClick={handleLogout}>Logout</button>
                   </li>
                 </>
