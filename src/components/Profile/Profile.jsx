@@ -6,33 +6,32 @@ const Profile = () => {
   const { getUserInfo, token, user } = useContext(UserContext);
 
   useEffect(() => {
-      getUserInfo();
+    console.log(user);
+    getUserInfo();
   }, [token]);
+
+  if (!user) {
+    return <Spin size="large" />;
+  }
 
   return (
     <div className="container-fluid d-flex justify-content-center align-items-center mt-5 pt-5">
-      {user ? (
-        <div className="card">
-          <div className="card-header bg-primary text-white text-center">
-            <h3>User Details</h3>
-          </div>
-          <div className="card-body p-5">
-            <p className="card-text">
-              <strong>Email:</strong> {user.email}
-            </p>
-            <p className="card-text">
-              <strong>Orders:</strong> {user.Orders}
-            </p>
-            <p className="card-text">
-              <strong>Role:</strong> {user.role}
-            </p>
-          </div>
+      <div className="card">
+        <div className="card-header bg-primary text-white text-center">
+          <h3>User Details</h3>
         </div>
-      ) : (
-        <div className="d-flex justify-content-center align-items-center min-vh-100">
-          <Spin size="large" />
+        <div className="card-body p-5">
+          <p className="card-text">
+            <strong>Email:</strong> {user.email}
+          </p>
+          <p className="card-text">
+            <strong>Orders:</strong> {user.Orders}
+          </p>
+          <p className="card-text">
+            <strong>Role:</strong> {user.role}
+          </p>
         </div>
-      )}
+      </div>
     </div>
   );
 }

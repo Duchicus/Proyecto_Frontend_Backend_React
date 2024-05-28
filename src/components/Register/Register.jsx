@@ -1,10 +1,17 @@
-import React from 'react'
+import React, { useContext } from 'react'
 import { Input, Button, Form } from 'antd';
+import { UserContext } from '../../context/UsersContext';
 
 
 const Register = () => {
 
+  const {register} = useContext(UserContext)
   const emailRegex = /^[a-zA-Z0-9._%+-]+@[a-zA-Z0-9.-]+\.[a-zA-Z]{2,}$/
+
+  const onFinish = (values) => {
+    register(values)
+    navigate("/login")
+  };
 
   return (
     <>
@@ -30,6 +37,7 @@ const Register = () => {
                   initialValues={{
                     remember: true,
                   }}
+                  onClick={onFinish}
                   autoComplete="on"
                 >
                   <Form.Item
