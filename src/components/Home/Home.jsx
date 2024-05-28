@@ -13,11 +13,10 @@ const Home = () => {
     getProducts()
   }, [])
 
-  const onCart = (id) =>{
+  const onCart = (id) => {
     const onSelected = products.filter(product => product.id === id)
     cart.push(...onSelected)
     localStorage.setItem('Cart', JSON.stringify(cart))
-    
   }
 
   return (
@@ -25,8 +24,8 @@ const Home = () => {
       <div className="row">
         {products.map((product) => (
           <div key={product.id} className="col-md-4 mb-4">
-            <div className="card">
-              <div className="card-body" onClick={() =>onCart(product.id)}>
+            <div className="card shadow rounded" id="card">
+              <div className="card-body" onClick={() => onCart(product.id)}>
                 <h4 className="card-title">{product.name}</h4>
                 <h5 className="card-title">{product.price}€</h5>
                 <span>Categoria/s :</span>

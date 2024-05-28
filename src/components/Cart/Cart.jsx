@@ -15,14 +15,14 @@ const Cart = () => {
         <div className="col-md-6 mt-n5">
           <div className="card shadow">
             <div className="card-header bg-secondary text-light text-center">
-              <h3>Products Cart</h3>
+              <h2>Products Cart</h2>
             </div>
             <div className="card-body">
               <div>
                 <ul>
                   {Object.keys(countMap).map((productName, index) => (
                     <li key={index}>
-                      {productName} - x{countMap[productName]}
+                      <h4>x{countMap[productName]} {productName}</h4>
                     </li>
                   ))}
                 </ul>
