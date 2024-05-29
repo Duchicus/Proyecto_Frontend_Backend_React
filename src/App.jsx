@@ -1,11 +1,11 @@
 import './App.css'
 import Home from './components/Home/Home'
-import Login from './components/Login/Login'
 import Profile from './components/Profile/Profile'
 import Header from './components/Header/Header'
 import Footer from './components/Footer/Footer'
-import Register from './components/Register/Register'
 import Cart from './components/Cart/Cart'
+import Register from './components/Register/Register'
+import Login from './components/Login/Login'
 import { BrowserRouter, Route, Routes } from "react-router-dom";
 import { ProductsProvider } from './context/ProductsContext'
 import { UsersProvider } from './context/UsersContext'
@@ -17,9 +17,9 @@ function App() {
 
   return (
     <>
-      <CartProvider>
-        <UsersProvider>
-          <ProductsProvider>
+      <UsersProvider>
+        <ProductsProvider>
+          <CartProvider>
             <BrowserRouter>
               <Header />
               <Routes>
@@ -29,12 +29,13 @@ function App() {
                 <Route path="/cart" element={<Cart />} />
                 <Route path="/profile" element={<Profile />} />
               </Routes>
-           <div className='space'></div>
+              <div className='space'></div>
               <Footer />
             </BrowserRouter>
-          </ProductsProvider>
-        </UsersProvider>
-      </CartProvider>
+          </CartProvider>
+        </ProductsProvider>
+      </UsersProvider>
+
     </>
   )
 }

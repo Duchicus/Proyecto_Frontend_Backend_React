@@ -1,6 +1,5 @@
 import React, { useContext, useEffect } from "react";
 import { ProductsContext } from "../../context/ProductsContext";
-import { Link } from "react-router-dom";
 import "./Home.scss"
 import { CartContext } from "../../context/CartsContext";
 
@@ -15,16 +14,10 @@ const Home = () => {
     getProducts()
   }, [])
 
-  const onCart = (id) => {
-    const onSelected = products.filter(product => product.id === id)
-    cart.push(...onSelected)
-    localStorage.setItem('Cart', JSON.stringify(cart))
-  }
-
   return (
       <div id="products">
         {products.map((product) => (
-          <div key={product.id} className="card">
+          <div key={product.id} className="card-home">
             <div className="card-img"><img className="img" src={"http://localhost:3001/product_images/"+product.image_path}/></div>
             <div className="card-title">{product.name}</div>
             <div className="card-subtitle"><span>Categoria/s :</span>
