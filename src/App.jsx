@@ -11,26 +11,29 @@ import { ProductsProvider } from './context/ProductsContext'
 import { UsersProvider } from './context/UsersContext'
 import 'bootstrap/dist/css/bootstrap.min.css';
 import 'bootstrap/dist/js/bootstrap.bundle.min';
+import { CartProvider } from './context/CartsContext'
 
 function App() {
 
   return (
     <>
-      <UsersProvider>
-        <ProductsProvider>
-          <BrowserRouter>
-            <Header />
-            <Routes>
-              <Route path="/" element={<Home />} />
-              <Route path="/login" element={<Login />} />
-              <Route path="/register" element={<Register />} />
-              <Route path="/cart" element={<Cart />} />
-              <Route path="/profile" element={<Profile />} />
-            </Routes>
-            <Footer />
-          </BrowserRouter>
-        </ProductsProvider>
-      </UsersProvider>
+      <CartProvider>
+        <UsersProvider>
+          <ProductsProvider>
+            <BrowserRouter>
+              <Header />
+              <Routes>
+                <Route path="/" element={<Home />} />
+                <Route path="/login" element={<Login />} />
+                <Route path="/register" element={<Register />} />
+                <Route path="/cart" element={<Cart />} />
+                <Route path="/profile" element={<Profile />} />
+              </Routes>
+              <Footer />
+            </BrowserRouter>
+          </ProductsProvider>
+        </UsersProvider>
+      </CartProvider>
     </>
   )
 }

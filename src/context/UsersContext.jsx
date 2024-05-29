@@ -1,6 +1,7 @@
 import { createContext, useReducer } from "react";
 import axios from "axios";
 import UsersReducer from "./UsersReducer";
+import { CartContext } from "./CartsContext";
 
 const token = localStorage.getItem('token') || ""
 

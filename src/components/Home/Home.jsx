@@ -2,10 +2,12 @@ import React, { useContext, useEffect } from "react";
 import { ProductsContext } from "../../context/ProductsContext";
 import { Link } from "react-router-dom";
 import "./Home.scss"
+import { CartContext } from "../../context/CartsContext";
 
 const Home = () => {
 
   const { products, getProducts } = useContext(ProductsContext)
+  const { addToCart } = useContext(CartContext)
 
   let cart = JSON.parse(localStorage.getItem('Cart')) || []
 
@@ -25,7 +27,7 @@ const Home = () => {
         {products.map((product) => (
           <div key={product.id} className="col-md-4 mb-4">
             <div className="card shadow rounded" id="card">
-              <div className="card-body" onClick={() => onCart(product.id)}>
+              <div className="card-body" onClick={() => addToCart(product)}>
                 <h4 className="card-title">{product.name}</h4>
                 <h5 className="card-title">{product.price}€</h5>
                 <span>Categoria/s :</span>

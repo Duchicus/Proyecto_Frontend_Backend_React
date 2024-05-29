@@ -1,17 +1,22 @@
 import React, { useContext } from 'react'
 import { Link, useNavigate } from "react-router-dom";
-import { FaBasketShopping } from "react-icons/fa6";
-import { CgProfile } from "react-icons/cg";
 import { FaHome } from "react-icons/fa";
 import { UserContext } from '../../context/UsersContext';
+import { CartContext } from '../../context/CartsContext';
+import { Avatar, Badge } from 'antd';
+import { ShoppingCartOutlined } from '@ant-design/icons';
 
 const Header = () => {
 
-  const {token , logout } = useContext(UserContext)
+  const { token, logout } = useContext(UserContext)
+  const { removeCart } = useContext(CartContext)
   const navigate = useNavigate()
+
+  const { cartCount } = useContext(CartContext)
 
   const handleLogout = async () => {
     await logout();
+    await removeCart()
     navigate("/login");
   };
 
@@ -26,9 +31,6 @@ const Header = () => {
           <ul className="navbar-nav">
             <li className="nav-item">
               <Link className="nav-link" to="/">Home <FaHome /></Link>
-            </li>
-            <li className="nav-item">
-              <Link className="nav-link" to="/cart">Cart <FaBasketShopping /></Link>
             </li>
             {token ? (
               <>
@@ -46,6 +48,16 @@ const Header = () => {
                 </li>
               </>
             )}
+            <li className="nav-item">
+              <Link className="nav-link position-relative" to="/cart">
+                <i className="fas fa-shopping-cart"></i>
+                <Badge count={cartCount}>
+                  <Avatar>
+                    <ShoppingCartOutlined />
+                  </Avatar>
+                </Badge>
+              </Link>
+            </li>
           </ul>
         </div >
       </div >
