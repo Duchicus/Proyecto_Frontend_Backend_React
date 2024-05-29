@@ -39,7 +39,7 @@ const Register = () => {
                   initialValues={{
                     remember: true,
                   }}
-                  onClick={onFinishRegister}
+                  onFinish={onFinishRegister}
                   autoComplete="on"
                 >
                   <Form.Item

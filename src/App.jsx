@@ -29,6 +29,7 @@ function App() {
                 <Route path="/cart" element={<Cart />} />
                 <Route path="/profile" element={<Profile />} />
               </Routes>
+           <div className='space'></div>
               <Footer />
             </BrowserRouter>
           </ProductsProvider>

@@ -20,10 +20,6 @@ export const UsersProvider = ({ children }) => {
     const register = async (user) => {
         try {
             const res = await axios.post(API_URL + "/register", user);
-            dispatch({
-                type: "REGISTER",
-                payload: res.data,
-            });
         } catch (error) {
             console.error(error)
         }

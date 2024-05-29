@@ -25,7 +25,7 @@ const Home = () => {
       <div id="products">
         {products.map((product) => (
           <div key={product.id} className="card">
-            <div className="card-img"><div className="img"></div></div>
+            <div className="card-img"><img className="img" src={"http://localhost:3001/product_images/"+product.image_path}/></div>
             <div className="card-title">{product.name}</div>
             <div className="card-subtitle"><span>Categoria/s :</span>
               <p>
