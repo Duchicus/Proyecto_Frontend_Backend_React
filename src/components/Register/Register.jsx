@@ -1,21 +1,23 @@
 import React, { useContext } from 'react'
 import { Input, Button, Form } from 'antd';
 import { UserContext } from '../../context/UsersContext';
+import { useNavigate } from 'react-router-dom';
 
 
 const Register = () => {
 
   const {register} = useContext(UserContext)
   const emailRegex = /^[a-zA-Z0-9._%+-]+@[a-zA-Z0-9.-]+\.[a-zA-Z]{2,}$/
+  const navigate = useNavigate()
 
-  const onFinish = (values) => {
+  const onFinishRegister = (values) => {
     register(values)
     navigate("/login")
   };
 
   return (
     <>
-      <div id="register" className="container-fluid d-flex align-items-center min-vh-100">
+      <div className="container-fluid d-flex align-items-center min-vh-100">
         <div className="row justify-content-center w-100">
           <div className="col-md-6 mt-n5">
             <div className="card shadow">
@@ -37,7 +39,7 @@ const Register = () => {
                   initialValues={{
                     remember: true,
                   }}
-                  onClick={onFinish}
+                  onClick={onFinishRegister}
                   autoComplete="on"
                 >
                   <Form.Item

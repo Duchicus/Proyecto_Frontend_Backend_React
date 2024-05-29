@@ -3,15 +3,14 @@ import { UserContext } from '../../context/UsersContext';
 import { Spin } from "antd";
 
 const Profile = () => {
-  const { getUserInfo, token, user } = useContext(UserContext);
+  const { getUserInfo, token , user} = useContext(UserContext);
 
   useEffect(() => {
-    console.log(user);
     getUserInfo();
   }, [token]);
 
   if (!user) {
-    return <Spin size="large" />;
+    return <Spin size="large" className='mt-5' />;
   }
 
   return (

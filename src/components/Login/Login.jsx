@@ -64,8 +64,9 @@ const Login = () => {
                     <Button className='bg-secondary' htmlType="submit">
                       <p className='text-light'>Submit</p>
                     </Button>
-                    <a href="/register">Don't have an account?</a>
                   </Form.Item>
+                  
+                    <a href="/register">Don't have an account?</a>
                 </Form>
               </div>
             </div>
