@@ -1,10 +1,8 @@
 import { createContext, useReducer } from "react";
 import axios from "axios";
 import UsersReducer from "./UsersReducer";
-import { CartContext } from "./CartsContext";
 
 const token = localStorage.getItem('token') || ""
-
 const initialState = {
     token: token,
     user: null
@@ -19,7 +17,7 @@ export const UsersProvider = ({ children }) => {
 
     const register = async (user) => {
         try {
-            const res = await axios.post(API_URL + "/register", user);
+            await axios.post(API_URL + "/register", user);
         } catch (error) {
             console.error(error)
         }

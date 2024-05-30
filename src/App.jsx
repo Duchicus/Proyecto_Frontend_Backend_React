@@ -10,7 +10,6 @@ import { BrowserRouter, Route, Routes } from "react-router-dom";
 import { ProductsProvider } from './context/ProductsContext'
 import { UsersProvider } from './context/UsersContext'
 import 'bootstrap/dist/css/bootstrap.min.css';
-import 'bootstrap/dist/js/bootstrap.bundle.min';
 import { CartProvider } from './context/CartsContext'
 
 function App() {
@@ -19,20 +18,20 @@ function App() {
     <>
       <UsersProvider>
         <ProductsProvider>
-          <CartProvider>
-            <BrowserRouter>
-              <Header />
-              <Routes>
-                <Route path="/" element={<Home />} />
-                <Route path="/login" element={<Login />} />
-                <Route path="/register" element={<Register />} />
-                <Route path="/cart" element={<Cart />} />
-                <Route path="/profile" element={<Profile />} />
-              </Routes>
-              <div className='space'></div>
-              <Footer />
-            </BrowserRouter>
-          </CartProvider>
+            <CartProvider>
+              <BrowserRouter>
+                <Header />
+                <Routes>
+                  <Route path="/" element={<Home />} />
+                  <Route path="/login" element={<Login />} />
+                  <Route path="/register" element={<Register />} />
+                  <Route path="/cart" element={<Cart />} />
+                  <Route path="/profile" element={<Profile />} />
+                </Routes>
+                <div className='space'></div>
+                <Footer />
+              </BrowserRouter>
+            </CartProvider>
         </ProductsProvider>
       </UsersProvider>
 

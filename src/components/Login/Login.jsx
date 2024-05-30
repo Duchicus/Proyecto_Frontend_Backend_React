@@ -9,6 +9,7 @@ const Login = () => {
   const emailRegex = /^[a-zA-Z0-9._%+-]+@[a-zA-Z0-9.-]+\.[a-zA-Z]{2,}$/
 
   const navigate = useNavigate()
+  
   const onFinish = (values) => {
     login(values)
     navigate("/profile")
