@@ -2,7 +2,7 @@ import React, { useContext } from 'react'
 import { Link, useNavigate } from "react-router-dom";
 import { UserContext } from '../../context/UsersContext';
 import { CartContext } from '../../context/CartsContext';
-import { Avatar, Badge } from 'antd';
+import { Badge } from 'antd';
 import './Header.scss'
 
 const Header = () => {

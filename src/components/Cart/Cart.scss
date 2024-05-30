@@ -108,3 +108,22 @@
         transform: translateX(-350px);
     }
 }
+
+.money {
+    font-family: 'Arial', sans-serif;
+    font-size: 1.2em;
+    font-weight: 600; /* Medium to Bold */
+    color: #333; /* Dark gray for default */
+}
+
+.money.positive {
+    color: #28a745; /* Green for positive amounts */
+}
+
+.money .currency-symbol {
+    margin-right: 0.1em;
+}
+
+.money .amount {
+    letter-spacing: 0.05em; /* Slight spacing for readability */
+}

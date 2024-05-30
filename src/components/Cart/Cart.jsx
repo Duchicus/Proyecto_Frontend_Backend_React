@@ -4,6 +4,7 @@ import { UserContext } from '../../context/UsersContext';
 import { Button, notification, Empty } from 'antd';
 import { CartContext } from '../../context/CartsContext';
 import { Link, useNavigate } from "react-router-dom";
+import "./Cart.scss"
 
 const Cart = () => {
 
@@ -78,9 +79,9 @@ const Cart = () => {
                 </div>
               </div>
             )}
-            <div className='card-footer'>
-              <Button className='bg-dark text-light' onClick={buyIt}>Buy</Button>
-              <span>PRICE : {totalPrice()} $</span>
+            <div className='card-footer-cart d-flex justify-content-between align-items-center money positive'>
+              <Button className='bg-dark text-light m-4' onClick={buyIt}>Buy</Button>
+              <span className='amount p-4'>{totalPrice()} <span className='currency-symbol'>$</span></span>
             </div>
           </div>
         </div>

@@ -11,7 +11,6 @@ import { ProductsProvider } from './context/ProductsContext'
 import { UsersProvider } from './context/UsersContext'
 import 'bootstrap/dist/css/bootstrap.min.css';
 import { CartProvider } from './context/CartsContext'
-import CheckoutForm from './components/CheckoutForm/CheckoutForm'
 
 function App() {
 
@@ -28,7 +27,6 @@ function App() {
                   <Route path="/register" element={<Register />} />
                   <Route path="/cart" element={<Cart />} />
                   <Route path="/profile" element={<Profile />} />
-                  <Route path="/payment" element={<CheckoutForm />} />
                 </Routes>
                 <div className='space'></div>
                 <Footer />
@@ -36,7 +34,6 @@ function App() {
             </CartProvider>
         </ProductsProvider>
       </UsersProvider>
-
     </>
   )
 }

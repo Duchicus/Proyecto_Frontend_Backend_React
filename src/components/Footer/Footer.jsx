@@ -3,7 +3,7 @@ import './Footer.scss'
 
 const Footer = () => {
   return (
-    <footer className="bg-dark text-light pt-4 pb-4 fixed-bottom">
+    <footer className="bg-dark text-light pt-4 pb-4 fixed-bottom footer-footer">
       <div className="container">
         <div>
           <div className="mx-auto">

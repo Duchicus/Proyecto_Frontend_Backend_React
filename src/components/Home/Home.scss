@@ -4,7 +4,7 @@
   display: flex;
   flex-wrap: wrap;
   gap: 2rem;
-  margin-top: 10%;
+  margin-top: 5%;
   margin-left: 7%;
 }
 
@@ -59,8 +59,8 @@
   width: 50px;
 }
 
-.card-btn svg {
-  width: 100%;
+.card-btn {
+  width: 72%;
   height: 100%;
   fill: $main-color;
   transition: all 0.3s;
@@ -83,8 +83,8 @@
 }
 
 .img {
-  width: 120px;
-  height: 120px;
+  width: 150px;
+  height: 130px;
 }
 
 .card-img {
@@ -97,4 +97,8 @@
 .carrito-btn{
   width: 15px;
   color: gold;
+}
+
+.product-search{
+  margin-top: 100px;
 }

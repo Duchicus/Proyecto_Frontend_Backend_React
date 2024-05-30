@@ -158,6 +158,8 @@ h78.747C231.693,100.736,232.77,106.162,232.77,111.694z"
               <strong>Role:</strong> {user.role}
             </p>
               <strong>Orders:</strong>
+              {console.log(ordersArray)}
+              
               {ordersArray.length > 0 ? (
                 ordersArray.map((order, index) => (
                   <span key={index} className="order-item">

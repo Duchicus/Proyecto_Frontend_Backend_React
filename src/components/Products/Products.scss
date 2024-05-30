@@ -35,11 +35,10 @@
         border-radius: 5px;
     }
 
-    .gold-fill {
-        fill: gold;
+    .category-name{
+        text-transform: uppercase;
     }
-
-    .carrito-btn:hover .gold-fill {
-        fill: #ffd700;
-        /* Optional: A brighter shade of gold on hover */
+    .glass{
+        margin: 10px;
+        margin-left: 38%;
     }
