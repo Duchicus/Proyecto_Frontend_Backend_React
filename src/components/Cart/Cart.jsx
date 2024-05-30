@@ -50,11 +50,11 @@ const Cart = () => {
   }
 
   return (
-    <div className="container-fluid d-flex align-items-center min-vh-100">
+    <div className="container-fluid d-flex align-items-center min-vh-100" id='cart-card'>
       <div className="row justify-content-center w-100">
         <div className="col-md-6 mt-n5">
           <div className="card shadow">
-            <div className="card-header bg-secondary text-light text-center">
+            <div className="card-header bg-dark text-light text-center">
               <h2>Products Cart</h2>
             </div>
             <div className="card-body">
@@ -69,7 +69,7 @@ const Cart = () => {
               </div>
             </div>
             <div className='card-footer'>
-              <button onClick={buyIt}>Buy</button>
+              <button className='bg-dark text-light' onClick={buyIt}>Buy</button>
               <span>PRICE : {totalPrice()} $</span>
             </div>
           </div>

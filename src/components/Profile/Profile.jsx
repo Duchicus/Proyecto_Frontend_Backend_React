@@ -145,7 +145,7 @@ h78.747C231.693,100.736,232.77,106.162,232.77,111.694z"
     return (
       <div id='profile' className="container-fluid d-flex justify-content-center align-items-center mt-5 pt-5">
         <div className="card">
-          <div className="card-header bg-primary text-white text-center">
+          <div className="card-header bg-dark text-white text-center">
             <h3>User Details</h3>
           </div>
           <div className="card-body p-5">

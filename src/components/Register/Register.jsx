@@ -21,7 +21,7 @@ const Register = () => {
       <div className="row justify-content-center w-100">
         <div className="col-md-6">
           <div className="card shadow">
-            <div className="card-header bg-secondary text-light text-center">
+            <div className="card-header bg-dark text-light text-center">
               <h3>Register</h3>
             </div>
             <div className="card-body">
@@ -53,7 +53,7 @@ const Register = () => {
                 </Form.Item>
 
                 <Form.Item>
-                  <Button type="primary" htmlType="submit" block>
+                  <Button type="primary" className='bg-dark' htmlType="submit" block>
                     Submit
                   </Button>
                 </Form.Item>

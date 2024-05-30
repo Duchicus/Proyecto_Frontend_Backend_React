@@ -15,7 +15,6 @@ export const ProductsProvider = ({ children }) => {
 
   const getProducts = async () => {
     const res = await axios.get(API_URL);
-    console.log(res);
     dispatch({
         type: "GET_PRODUCTS",
         payload: res.data,
