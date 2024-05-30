@@ -1,16 +1,20 @@
 import React, { useContext, useEffect } from 'react'
 import OrderService from "../../service/OrderService";
 import { UserContext } from '../../context/UsersContext';
-
+import { Button, notification } from 'antd';
+import { CartContext } from '../../context/CartsContext';
 
 const Cart = () => {
 
   const cartProducts = JSON.parse(localStorage.getItem('Cart')) || []
   let total = 0
   const { user, token, getUserInfo } = useContext(UserContext)
+  const { removeCart } = useContext(CartContext)
 
   useEffect(() => {
-    getUserInfo();
+    if(user){
+      getUserInfo();
+    }
   }, [token]);
 
   const countMap = [];
@@ -27,8 +31,14 @@ const Cart = () => {
         ProductId: productsIds
       }
       OrderService.createOrder(productBuy)
+      removeCart()
+      return notification.success({
+        message: 'Succesfully purchased'
+      });
     } else {
-      return spinner()
+      return notification.error({
+        message: 'You must login for buy'
+      });
     }
   };
 
@@ -60,7 +70,7 @@ const Cart = () => {
             </div>
             <div className='card-footer'>
               <button onClick={buyIt}>Buy</button>
-              <span>PRICE : {totalPrice()}</span>
+              <span>PRICE : {totalPrice()} $</span>
             </div>
           </div>
         </div>
