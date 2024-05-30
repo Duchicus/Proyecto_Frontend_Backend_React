@@ -1,18 +1,20 @@
 import React, { useContext, useEffect } from 'react'
 import OrderService from "../../service/OrderService";
 import { UserContext } from '../../context/UsersContext';
-import { Button, notification } from 'antd';
+import { Button, notification, Empty } from 'antd';
 import { CartContext } from '../../context/CartsContext';
+import { Link, useNavigate } from "react-router-dom";
 
 const Cart = () => {
 
+  const navigate = useNavigate()
   const cartProducts = JSON.parse(localStorage.getItem('Cart')) || []
   let total = 0
   const { user, token, getUserInfo } = useContext(UserContext)
   const { removeCart } = useContext(CartContext)
 
   useEffect(() => {
-    if(user){
+    if (user) {
       getUserInfo();
     }
   }, [token]);
@@ -23,7 +25,7 @@ const Cart = () => {
   });
 
   const buyIt = async () => {
-    if (user) {
+    if (user && cartProducts.length > 0) {
       const productsIds = []
       cartProducts.forEach((product) => productsIds.push(product.id))
       const productBuy = {
@@ -32,6 +34,7 @@ const Cart = () => {
       }
       OrderService.createOrder(productBuy)
       removeCart()
+      //navigate('/payment')
       return notification.success({
         message: 'Succesfully purchased'
       });
@@ -57,25 +60,32 @@ const Cart = () => {
             <div className="card-header bg-dark text-light text-center">
               <h2>Products Cart</h2>
             </div>
-            <div className="card-body">
-              <div>
-                <ul>
-                  {Object.keys(countMap).map((productName, index) => (
-                    <li key={index}>
-                      <h4>x{countMap[productName]} {productName}</h4>
-                    </li>
-                  ))}
-                </ul>
+            {cartProducts.length > 0 ? (
+              <div className="card-body">
+                <div>
+                  <ul>
+                    {Object.keys(countMap).map((productName, index) => (
+                      <li key={index}>
+                        <h4>x{countMap[productName]} {productName}</h4>
+                      </li>
+                    ))}
+                  </ul>
+                </div>
+              </div>) : (
+              <div className="card-body">
+                <div>
+                  <Empty description={<span>Empty cart </span>} />
+                </div>
               </div>
-            </div>
+            )}
             <div className='card-footer'>
-              <button className='bg-dark text-light' onClick={buyIt}>Buy</button>
+              <Button className='bg-dark text-light' onClick={buyIt}>Buy</Button>
               <span>PRICE : {totalPrice()} $</span>
             </div>
           </div>
         </div>
       </div>
-    </div>
+    </div >
   );
 }
 

@@ -1,6 +1,8 @@
 import React, { useContext, useEffect } from 'react';
 import { UserContext } from '../../context/UsersContext';
 import './Profile.scss'
+import { Collapse } from "antd";
+const { Panel } = Collapse
 
 const Profile = () => {
   const { getUserInfo, token, user } = useContext(UserContext);
@@ -155,26 +157,24 @@ h78.747C231.693,100.736,232.77,106.162,232.77,111.694z"
             <p className="card-text">
               <strong>Role:</strong> {user.role}
             </p>
-            <p className="card-text">
               <strong>Orders:</strong>
               {ordersArray.length > 0 ? (
                 ordersArray.map((order, index) => (
                   <span key={index} className="order-item">
-                    <br />
-                    order_id: {order.id}, 
-                    products: {order.Products.map((singleProduct, productIndex) => (
-                      <span key={productIndex}>
-                        {singleProduct.name} {productIndex < order.Products.length - 1 && ", "}
-                      </span>
-                    ))}
-                    
+                    <Collapse defaultActiveKey={index}>
+                      <Panel header={`pedido ${order.id}`} key={index}>
+                        {order.Products.map((singleProduct, productIndex) => (
+                          <span key={productIndex}>
+                            {singleProduct.name} {productIndex < order.Products.length - 1 && ", "}
+                          </span>
+                        ))}
+                      </Panel>
+                    </Collapse>
                   </span>
                 ))
               ) : (
                 <span> No orders available</span>
               )}
-            </p>
-
           </div>
         </div>
       </div>
