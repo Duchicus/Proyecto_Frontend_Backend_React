@@ -16,9 +16,23 @@ export const ProductsProvider = ({ children }) => {
   const getProducts = async () => {
     const res = await axios.get(API_URL);
     dispatch({
-        type: "GET_PRODUCTS",
-        payload: res.data,
-      });
+      type: "GET_PRODUCTS",
+      payload: res.data,
+    });
+  };
+
+  const deleteProduct = async (productId) => {
+    let token = localStorage.getItem("token")
+    const res = await axios.delete(API_URL + `/id/${productId}`, {
+      headers: {
+        Authorization: token
+      }
+    });
+    // dispatch({
+    //   type: "DELETE_PRODUCT",
+    //   payload: res.data,
+    // });
+    getProducts()
   };
 
   return (
@@ -26,6 +40,7 @@ export const ProductsProvider = ({ children }) => {
       value={{
         products: state.products,
         getProducts,
+        deleteProduct
       }}
     >
       {children}

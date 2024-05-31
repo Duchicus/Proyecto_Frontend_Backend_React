@@ -1,4 +1,4 @@
-import React, { useContext, useState } from "react";
+import React, { useContext, useEffect, useState } from "react";
 import { ProductsContext } from "../../context/ProductsContext";
 import { CartContext } from "../../context/CartsContext";
 import { FaMagnifyingGlass } from "react-icons/fa6";
@@ -6,8 +6,9 @@ import "./Products.scss"
 
 const Products = () => {
 
-    const { products } = useContext(ProductsContext)
+    const { products, deleteProduct } = useContext(ProductsContext)
     const { addToCart } = useContext(CartContext)
+    const user = JSON.parse(localStorage.getItem('User'))
 
     const [input, setInput] = useState({
         name: ""
@@ -16,8 +17,8 @@ const Products = () => {
         setInput({
             name: e.target.value
         })
-    
     }
+
     return (
         <>
             <FaMagnifyingGlass className="glass" />
@@ -42,6 +43,11 @@ const Products = () => {
                                     <button className="card-btn bg-dark" onClick={() => addToCart(product)}>
                                         <span className="text-light">Add to cart</span>
                                     </button>
+                                    {user.role === 'admin' && (
+                                        <button className="card-btn bg-danger" onClick={() => deleteProduct(product.id)}>
+                                            <span className="text-light">delete</span>
+                                        </button>
+                                    )}
                                 </div>
                             </div>
                         </div>
