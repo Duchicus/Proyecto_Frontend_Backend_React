@@ -21,7 +21,7 @@ const Products = () => {
     return (
         <>
             <FaMagnifyingGlass className="glass" />
-            <input type="text" className="product-search" name="name" placeholder="replace with a game..." onChange={inputHave} />
+            <input type="text" className="product-search" name="name" onChange={inputHave} />
             <div id="products">
                 {products.filter((productfilter) => productfilter.name.toLowerCase().includes(input.name.toLowerCase())).map((product) => (
                     <div key={product.id} className="card-home flip-card">

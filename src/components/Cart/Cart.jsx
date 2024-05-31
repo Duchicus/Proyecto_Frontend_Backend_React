@@ -3,7 +3,6 @@ import OrderService from "../../service/OrderService";
 import { UserContext } from '../../context/UsersContext';
 import { notification, Empty } from 'antd';
 import { CartContext } from '../../context/CartsContext';
-import { MdOutlineShoppingBag } from "react-icons/md";
 import "./Cart.scss"
 
 const Cart = () => {
