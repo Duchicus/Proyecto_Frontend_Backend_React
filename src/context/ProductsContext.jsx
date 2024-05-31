@@ -28,10 +28,6 @@ export const ProductsProvider = ({ children }) => {
         Authorization: token
       }
     });
-    // dispatch({
-    //   type: "DELETE_PRODUCT",
-    //   payload: res.data,
-    // });
     getProducts()
   };
 
