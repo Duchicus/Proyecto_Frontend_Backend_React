@@ -15,16 +15,30 @@ export const CartProvider = ({ children }) => {
     setCartProducts((prevProducts) => [...prevProducts, product]);
   };
 
+  const removeToCart = (product) => {
+    setCartProducts((prevProducts) => {
+      const productIndex = prevProducts.findIndex((prod) => prod.name === product.name);
+      if (productIndex !== -1) {
+        const newProducts = [...prevProducts];
+        newProducts.splice(productIndex, 1);
+        return newProducts;
+      }
+      return prevProducts;
+    });
+  };
+
   const removeCart = () => {
     setCartProducts([])
   }
 
   return (
-    <CartContext.Provider value={{ 
-        cartProducts, 
-        addToCart, 
-        cartCount, 
-        removeCart }}>
+    <CartContext.Provider value={{
+      cartProducts,
+      addToCart,
+      cartCount,
+      removeCart,
+      removeToCart
+    }}>
 
       {children}
     </CartContext.Provider>

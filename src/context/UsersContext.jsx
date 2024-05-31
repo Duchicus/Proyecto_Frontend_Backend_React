@@ -1,6 +1,7 @@
 import { createContext, useReducer } from "react";
 import axios from "axios";
 import UsersReducer from "./UsersReducer";
+import { notification } from "antd";
 
 const token = localStorage.getItem('token') || ""
 const initialState = {
@@ -32,6 +33,14 @@ export const UsersProvider = ({ children }) => {
             });
             if (res.data) {
                 localStorage.setItem("token", res.data.token);
+                localStorage.setItem("User", JSON.stringify(res.data.user))
+                notification.success({
+                    message: 'Welcome'
+                  });
+            }else{
+                notification.error({
+                    message: 'User not found'
+                  });
             }
         } catch (error) {
             console.error(error)

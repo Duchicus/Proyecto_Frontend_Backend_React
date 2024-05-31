@@ -1,21 +1,17 @@
 import React, { useContext } from 'react'
-import { useNavigate } from "react-router-dom";
 import { UserContext } from '../../context/UsersContext';
-import { Input, notification, Button, Form } from 'antd';
+import { Input, Button, Form } from 'antd';
 import "./Login.scss"
+import { useNavigate } from 'react-router-dom';
 
 const Login = () => {
   const { login } = useContext(UserContext)
   const emailRegex = /^[a-zA-Z0-9._%+-]+@[a-zA-Z0-9.-]+\.[a-zA-Z]{2,}$/
-
   const navigate = useNavigate()
 
   const onFinish = (values) => {
     login(values)
     navigate("/profile")
-    notification.success({
-      message: 'Welcome'
-    });
   };
   return (
     <>
