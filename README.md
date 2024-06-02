@@ -59,7 +59,8 @@ Abre [http://localhost:??](http://localhost:??) para ver la aplicación en tu na
 
 - [React](https://reactjs.org/)
 - [Axios](https://github.com/axios/axios) (para las solicitudes HTTP)
-- [Bootstrap](https://getbootstrap.com/) (o cualquier otra librería de CSS que utilices)
+- [Bootstrap](https://getbootstrap.com/)
+- [AntDesign](https://ant.design)
 
 ## Contacto
 
