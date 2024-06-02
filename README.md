@@ -48,11 +48,12 @@ Abre [http://localhost:??](http://localhost:??) para ver la aplicación en tu na
 
 ## Vista de aplicación
 
-![Home](src/images/Home.png)
-![Profile](src/images/Profile.png)
-![Login](src/images/Login.png)
-![Register](src/images/Register.png)
-![Cart](src/images/Cart.png)
+![Home](images/Home.PNG)
+![Profile](images/Profile.PNG)
+![Login](images/Login.PNG)
+![Register](images/Register.PNG)
+![Cart](images/Cart.PNG)
+
 
 ## Tecnologías
 
