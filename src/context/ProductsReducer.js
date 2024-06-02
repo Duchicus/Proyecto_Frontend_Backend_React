@@ -5,6 +5,11 @@ const products = (state, action) => {
           ...state,
           products: action.payload,
         };
+        case "DELETE_PRODUCT":
+        return {
+          ...state,
+          products: action.payload,
+        };
       default:
         return state;
     }
